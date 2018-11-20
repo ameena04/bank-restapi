@@ -1,0 +1,5 @@
+package com.bank.restapi.controller;
+
+public class BanksController {
+
+}

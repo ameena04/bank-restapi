@@ -1,0 +1,5 @@
+package com.bank.restapi.model;
+
+public class Banks {
+
+}

@@ -1,0 +1,5 @@
+package com.bank.restapi.dao;
+
+public class BanksDAO {
+
+}

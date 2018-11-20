@@ -1,0 +1,5 @@
+package com.bank.restapi.repository;
+
+public class BanksRepository {
+
+}

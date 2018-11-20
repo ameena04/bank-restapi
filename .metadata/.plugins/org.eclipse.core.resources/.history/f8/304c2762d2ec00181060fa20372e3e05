@@ -1,0 +1,48 @@
+package com.bank.restapi.controller;
+
+//import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.bank.restapi.dao.BanksDAO;
+import com.bank.restapi.model.Banks;
+
+@RestController
+@RequestMapping("/banks")
+public class BanksController {
+
+    @Autowired
+    BanksDAO banksDAO;
+        
+    /*get banks details by ifsc*/
+	@GetMapping("/bank_branches/{ifsc}")
+	/*public ResponseEntity<Banks> getIfsc(@PathVariable(value="ifsc") String ifsc){
+		Banks i=banksDAO.findByIfsc(ifsc);
+		if(i==null) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok().body(i);		
+	}*/
+	@ResponseBody
+	public String getByIfsc(String id)
+	{
+		String us = "";
+		  try {
+		    Banks user = banksDAO.findByIfsc(id);
+		    us = String.valueOf(user.getBranch());
+		  }
+		  catch (Exception ex) {
+		    return "User not found";
+		  }
+		  return "The user id is: " + us;
+
+	}
+}
+
+
